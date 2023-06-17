@@ -5,16 +5,36 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.h2.tools.Server;
-import modelos.Livro;
-import modelos.Estante;
-import modelos.Usuarios.Usuario;
-import modelos.Usuarios.Adm;
-import modelos.Usuarios.Bibliotecario;
-import modelos.Usuarios.UsuarioCliente;
-import modelos.Emprestimo;
+import models.*;
 
 public class Biblioteca {
     public static void main(String[] args) {
         // Código da aplicação
+        Livro livro = new Livro();
+        livro.setNome("O Senhor dos Anéis");
+        livro.setISBN("9780544003415");
+        Estante estante = new Estante();
+        estante.setGenero("Fantasia");
+        estante.setCor("Marrom");
+        estante.setTamanho("Grande");
+        livro.setEstante(estante);
+
+        System.out.println("Informações do Livro:");
+        System.out.println("Nome: " + livro.getNome());
+        System.out.println("ISBN: " + livro.getISBN());
+        System.out.println("Estante: " + livro.getEstante().getGenero() + ", " + 
+        livro.getEstante().getCor() + ", " + livro.getEstante().getTamanho());
+    
+    
+    
+    
     }
-}
+
+
+
+
+
+
+
+    }
+
