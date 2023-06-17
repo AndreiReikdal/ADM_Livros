@@ -1,11 +1,11 @@
-package com.alexandre.dao;
-
+package com.emprestalivro.desenvolvimento.dao.daomodel_model;
+/* 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.alexandre.modelos.Pessoa;
+
 
 import java.util.List;
 
@@ -64,3 +64,4 @@ public class PessoaDAO {
         em.close();
     }
 }
+*/

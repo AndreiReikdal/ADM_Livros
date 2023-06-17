@@ -1,25 +1,26 @@
-package app;
+package com.emprestalivro.desenvolvimento.app;
+/* 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import models.*;
-import models.autores.Autor;
+
+import com.emprestalivro.desenvolvimento.models.*;
+import com.emprestalivro.desenvolvimento.models.livro.Livro;
+
+
 
 public class Biblioteca {
-    static Scanner leitor = new 
-    ArrayList<Livro> listaLivros =new ArrayList<Livro>();
+    static Scanner leitor = new ArrayList<Livro> listaLivros =new ArrayList<Livro>();
     
     public static void main(String[] args) {
     int op = 0;
     Autor au = new Autor(null, null);
 
-    LivroDigital dig  = new LivroDigital("kar", "null", "null", 10, "null");
-    LivroDigital dig1  = new LivroDigital("null", "null", "null", 60, "null");
-    LivroDigital dig2  = new LivroDigital("null", "null", "null", 20, "null");
+   
 
-    LivroFisico fis = new LivroFisico("null", "null", "null", 30, 230, "null");
-    LivroFisico fis1 = new LivroFisico("null", "null", "null", 40, 450, "null");
-    LivroFisico fis2 = new LivroFisico("null", "null", "null", 30, 430, "null");
+    Livro fis = new Livro("null", "null", "null", 30, 230, "null");
+    Livro fis1 = new Livro("null", "null", "null", 40, 450, "null");
+    Livro fis2 = new Livro("null", "null", "null", 30, 430, "null");
     
 
     
@@ -36,3 +37,4 @@ public class Biblioteca {
       }while(op != 0);
     }
 }
+*/

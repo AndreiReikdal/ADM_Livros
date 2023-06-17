@@ -1,4 +1,4 @@
-package models.autores;
+package com.emprestalivro.desenvolvimento.models.autores;
 
 public class Autor {
     protected String nome;
@@ -8,6 +8,38 @@ public class Autor {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
     }
+
+    
+    public String getNome() {
+        return nome;
+    }
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
+
+    public int getQtdlivro() {
+        return qtdlivro;
+    }
+
+
+    public void setQtdlivro(int qtdlivro) {
+        this.qtdlivro = qtdlivro;
+    }
+
+
     @Override
     public String toString() {
         return "Autor [nome=" + nome + ", nacionalidade=" + nacionalidade + "]";

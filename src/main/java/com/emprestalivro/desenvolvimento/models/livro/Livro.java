@@ -1,6 +1,9 @@
-package models;
+package com.emprestalivro.desenvolvimento.models.livro;
 import java.util.ArrayList;
-import models.autores.*;
+
+import com.emprestalivro.desenvolvimento.models.autores.Autor;
+
+
 
 public class Livro {
     protected String titulo;
@@ -14,7 +17,7 @@ public class Livro {
         this.iSBN = iSBN;
         this.ano = ano;
     }
-    public class Livro {
+    public class Livro1 {
     private String nome;
     private String ISBN;
     private Estante estante;

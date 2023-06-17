@@ -1,0 +1,64 @@
+@startuml
+
+class Livro {
+  - nome: String
+  - ISBN: String
+  - estante: Estante
+  + getNome(): String
+  + getISBN(): String
+  + getEstante(): Estante
+}
+
+class Usuário {
+  - nome: String
+  - cpf: String
+  - endereço: String
+  - RGM: String
+  - email: String
+  + getNome(): String
+  + getCPF(): String
+  + getEndereço(): String
+  + getRGM(): String
+  + getEmail(): String
+}
+
+class Adm {
+  - nome: String
+  - cpf: String
+  - endereço: String
+  - RGM: String
+  - email: String
+  + getNome(): String
+  + getCPF(): String
+  + getEndereço(): String
+  + getRGM(): String
+  + getEmail(): String
+}
+
+class Estante {
+  - genero: String
+  - cor: String
+  - tamanho: String
+  + getGenero(): String
+  + getCor(): String
+  + getTamanho(): String
+}
+
+class Empréstimo {
+  - usuario: Usuário
+  - livro: Livro
+  - estante: Estante
+  + getUsuario(): Usuário
+  + getLivro(): Livro
+  + getEstante(): Estante
+}
+
+Livro -- Estante
+Empréstimo "1" -- "1" Usuario
+Empréstimo "1" -- "1" Livro
+Empréstimo "1" -- "1" Estante
+
+Usuário <|-- Adm
+Usuário <|-- Usuario
+
+@enduml

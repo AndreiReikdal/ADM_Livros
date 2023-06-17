@@ -1,15 +1,34 @@
 package com.emprestalivro.desenvolvimento;
+import com.emprestalivro.desenvolvimento.models.usuarios.Usuario;
+import com.emprestalivro.desenvolvimento.dao.UsuarioDAO;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-import java.sql.SQLException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import org.h2.tools.Server;
-import models.*;
+public class Application {
+    static Scanner leitor = new Scanner(System.in);
 
-public class Biblioteca {
     public static void main(String[] args) {
-        // Código da aplicação
+        // Criar instância do UsuarioDAO
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        // Criar um novo usuário com base nas informações fornecidas pelo usuário
+        System.out.println("Digite o nome do usuário:");
+        String nome = leitor.nextLine();
+
+        System.out.println("Digite a idade do usuário:");
+        int idade = leitor.nextInt();
+
+        Usuario novoUsuario = new Usuario(nome, idade);
+
+        // Salvar o novo usuário no banco de dados
+        usuarioDAO.salvarUsuario(novoUsuario);
+
+        System.out.println("Usuário criado com sucesso!");
+    }
+}
+
+
+    /* //   Código da aplicação
         Livro livro = new Livro();
         livro.setNome("O Senhor dos Anéis");
         livro.setISBN("9780544003415");
@@ -25,16 +44,25 @@ public class Biblioteca {
         System.out.println("Estante: " + livro.getEstante().getGenero() + ", " + 
         livro.getEstante().getCor() + ", " + livro.getEstante().getTamanho());
     
-    
-    
-    
-    }
+ ATENÇÃO: SÃO TRECHOS DE CÓDIGOS QUE FAZEM OPERAÇÕES DISTINTAS. DESCOMENTE CADA TRECHO PARA TESTAR CADA OPERAÇÃO.
 
+        // Instanciação dos objetos DAO
+       UsuarioDAO pDao = new UsuarioDAO();
+        pDao.someMethod(); // Call a method on pDao
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
 
+        // Crie um novo usuário
+        Usuario novoUsuario = new Usuario();
+        novoUsuario.setNome("João");
+        novoUsuario.setEmail("joao@example.com");
 
+        // Salve o novo usuário no banco de dados
+        usuarioDAO.salvarPessoa(novoUsuario);
 
+        System.out.println("Usuário criado com sucesso!");
 
+// Use pDao further in your code as needed*/
 
+       
 
-    }
-
+        // Salva os objetos no banco
