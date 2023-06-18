@@ -1,4 +1,4 @@
-package com.emprestalivro.desenvolvimento.app;
+package com.emprestalivro.desenvolvimento.models.livro;
 /* 
 import java.util.ArrayList;
 import java.util.Scanner;

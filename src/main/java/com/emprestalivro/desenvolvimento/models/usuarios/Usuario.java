@@ -1,5 +1,4 @@
 package com.emprestalivro.desenvolvimento.models.usuarios;
-import java.util.List;
 import javax.persistence.*;
 
 @Entity

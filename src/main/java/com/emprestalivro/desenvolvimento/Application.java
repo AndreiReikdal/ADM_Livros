@@ -1,31 +1,44 @@
 package com.emprestalivro.desenvolvimento;
-import com.emprestalivro.desenvolvimento.models.usuarios.Usuario;
-import com.emprestalivro.desenvolvimento.dao.UsuarioDAO;
-import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.emprestalivro.desenvolvimento.dao.UsuarioDAO;
+import com.emprestalivro.desenvolvimento.models.usuarios.Usuario;
+
 public class Application {
+    // ConfigureJavaSE11Environment.configureEnvironment();
     static Scanner leitor = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Criar instância do UsuarioDAO
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        try {
+            // Criar instância do UsuarioDAO
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-        // Criar um novo usuário com base nas informações fornecidas pelo usuário
-        System.out.println("Digite o nome do usuário:");
-        String nome = leitor.nextLine();
+            // Criar um novo usuário com base nas informações fornecidas pelo usuário
+            System.out.println("Digite o nome do usuário:");
+            String nome = leitor.nextLine();
 
-        System.out.println("Digite a idade do usuário:");
-        int idade = leitor.nextInt();
+            System.out.println("Digite a idade do usuário:");
+            int idade = leitor.nextInt();
 
-        Usuario novoUsuario = new Usuario(nome, idade);
+            Usuario novoUsuario = new Usuario(nome, idade);
 
-        // Salvar o novo usuário no banco de dados
-        usuarioDAO.salvarUsuario(novoUsuario);
+            // Salvar o novo usuário no banco de dados
+            usuarioDAO.salvarUsuario(novoUsuario);
 
-        System.out.println("Usuário criado com sucesso!");
+            System.out.println("Usuário criado com sucesso!");
+
+        } catch (Exception e) {
+            // Tratamento da exceção
+            
+            // Exibindo a mensagem de erro
+            System.out.println("Ocorreu um erro: " + e.getMessage());
+            
+            // Exibindo o rastreamento da pilha de exceções
+            e.printStackTrace();
+        }
     }
 }
+
 
 
     /* //   Código da aplicação

@@ -1,0 +1,10 @@
+com\emprestalivro\desenvolvimento\Application.class
+com\emprestalivro\desenvolvimento\models\livro\Livro.class
+com\emprestalivro\desenvolvimento\models\emprestimo\Emprestimo.class
+com\emprestalivro\desenvolvimento\models\autores\Autor.class
+com\emprestalivro\desenvolvimento\models\usuarios\UsuarioAdm.class
+com\emprestalivro\desenvolvimento\models\estante\Estante.class
+com\emprestalivro\desenvolvimento\models\livro\Livro$Estante.class
+com\emprestalivro\desenvolvimento\dao\UsuarioDAO.class
+com\emprestalivro\desenvolvimento\models\livro\Livro$Livro1.class
+com\emprestalivro\desenvolvimento\models\usuarios\Usuario.class
