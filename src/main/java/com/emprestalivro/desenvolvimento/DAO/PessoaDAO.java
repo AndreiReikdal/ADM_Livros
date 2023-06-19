@@ -1,16 +1,18 @@
-package com.emprestalivro.desenvolvimento.dao.daomodel_model;
-/* 
+package com.emprestalivro.desenvolvimento.dao;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-
+import com.emprestalivro.desenvolvimento.models.usuarios.Administrador;
+import com.emprestalivro.desenvolvimento.models.usuarios.Cliente;
+import com.emprestalivro.desenvolvimento.models.usuarios.Pessoa;
 
 import java.util.List;
 
 public class PessoaDAO {
-    private EntityManagerFactory emf;
+    private static EntityManagerFactory emf;
 
     public PessoaDAO() {
         emf = Persistence.createEntityManagerFactory("my-persistence-unit");
@@ -31,7 +33,7 @@ public class PessoaDAO {
         return pessoa;
     }
 
-    public List<Pessoa> buscarTodasPessoas() {
+    public static List<Pessoa> buscarTodasPessoas() {
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("SELECT p FROM Pessoa p");
         List<Pessoa> pessoas = query.getResultList();
@@ -39,12 +41,20 @@ public class PessoaDAO {
         return pessoas;
     }
 
-    public List<Pessoa> buscarTodasCriancas(){
-          EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT c FROM Crianca c");
-        List<Pessoa> pessoas = query.getResultList();
+    public static List<Pessoa> buscarTodosClientes() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT c FROM Cliente c");
+        List<Cliente> clientes = query.getResultList();
         em.close();
-        return pessoas;
+        return clientes;
+    }
+
+    public List<Administrador> buscarTodosAdministradores() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT a FROM Administrador a");
+        List<Administrador> administradores = query.getResultList();
+        em.close();
+        return administradores;
     }
 
     public void atualizarPessoa(Pessoa pessoa) {
@@ -64,4 +74,3 @@ public class PessoaDAO {
         em.close();
     }
 }
-*/

@@ -1,82 +1,88 @@
 package com.emprestalivro.desenvolvimento.models.livro;
+
 import java.util.ArrayList;
 
-import com.emprestalivro.desenvolvimento.models.autores.Autor;
+import com.emprestalivro.desenvolvimento.models.estante.Estante;
 
+import javax.persistence.*;
 
-
-public class Livro {
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_Livro")
+@Table(name = "livro")
+public class Livro  {
     protected String titulo;
     protected String editora;
     protected String iSBN;
     protected int ano;
-    public  ArrayList<Autor> listaAutor = new ArrayList<Autor>();
+
+
     public Livro(String titulo, String editora, String iSBN, int ano) {
         this.titulo = titulo;
         this.editora = editora;
         this.iSBN = iSBN;
         this.ano = ano;
     }
-    public class Livro1 {
-    private String nome;
-    private String ISBN;
-    private Estante estante;
 
-    public String getNome() {
-        return nome;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
     }
 
     public String getISBN() {
-        return ISBN;
+        return iSBN;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setISBN(String iSBN) {
+        this.iSBN = iSBN;
     }
 
-    public Estante getEstante() {
-        return estante;
+    public int getAno() {
+        return ano;
     }
 
-    public void setEstante(Estante estante) {
-        this.estante = estante;
+    public void setAno(int ano) {
+        this.ano = ano;
     }
+
 }
 
-// Pasta models - Estante.java
-
-public class Estante {
-    private String genero;
-    private String cor;
-    private String tamanho;
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
-}
+/*public class Biblioteca {
+    static Scanner leitor = new ArrayList<Livro> listaLivros =new ArrayList<Livro>();
     
-}
+    public static void main(String[] args) {
+    int op = 0;
+    Autor au = new Autor(null, null);
+
+   
+
+    Livro fis = new Livro("null", "null", "null", 30, 230, "null");
+    Livro fis1 = new Livro("null", "null", "null", 40, 450, "null");
+    Livro fis2 = new Livro("null", "null", "null", 30, 430, "null");
+    
+
+    
+    System.out.println();
+
+    System.out.println(listaLivros);
+      do{
+        System.out.println("digite uma opçao");
+
+        switch(op){
+            case 1:
+                cadastrarLivro();
+        }
+      }while(op != 0);
+    }
+} */

@@ -1,0 +1,134 @@
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_usuario")
+@Table(name = "usuario")
+public class Usuario {
+
+
+    // Declaração dos atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+    protected String nome;
+    protected int idade;
+    
+
+    // Construtor vazio
+    public Usuario(){
+
+    }
+
+    public Usuario(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public Usuario(String string, int i, String string2) {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario [id=" + id + ", nome=" + nome + ", idade=" + idade + "]";
+    }}
+##########################################################################################
+
+int op;
+        
+        do {
+            System.out.println("--------- MENU ---------");
+            System.out.println("1 - Adicionar Empréstimo");
+            System.out.println("2 - Adicionar um Cliente");
+            System.out.println("3 - Adicionar um Livro");
+            System.out.println("3 - Adicionar um ADM");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opção: ");
+            
+            op = leInteiro();
+
+            switch (op) {
+                case 1:
+                    cadastraEmprestimo();
+                    break;
+                case 2:
+                    cadastraCliente();
+                    break;
+                case 3:
+                    cadastraLivro();
+                    break;
+                case 4:
+                    cadastraADM();
+                    break;
+                case 0:
+                    System.out.println("Encerrando o programa...");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+                    break;
+            }
+        } while (op != 0);
+    }
+
+    
+    
+
+
+    private static int leInteiro() {
+        while (!leitor.hasNextInt()) {
+            System.out.print("Entrada inválida! Digite um número inteiro: ");
+            leitor.next();
+        }
+        return leitor.nextInt();
+    }
+    public static void cadastraEmprestimo() {
+        // Lógica para cadastrar um empréstimo
+        System.out.println("Método cadastraEmprestimo() chamado");
+    }
+
+    public static void cadastraCliente() {
+        // Aqui você pode implementar a lógica para cadastrar um cliente
+        // Exemplo:
+        System.out.println("Cadastrando um Cliente...");
+        // Criar instância do UsuarioDAO
+        UsuarioDAO uDAO = new UsuarioDAO();
+            
+        // Criar uma lista de usuários
+        Cliente u = new Cliente("joao", 60, "23232323");
+
+        // Salvar a lista de usuários no banco de dados
+        uDAO.salvarListaUsuarios(u);
+
+        System.out.println("Usuário criado com sucesso!");
+        System.out.println("Método cadastraCliente() chamado");
+    }
+
+    public static void cadastraLivro() {
+        // Lógica para cadastrar um livro
+        System.out.println("Método cadastraLivro() chamado");
+    }
+    public static void cadastraADM() {
+    }
+############################################################################

@@ -1,27 +1,32 @@
 package com.emprestalivro.desenvolvimento.models.usuarios;
+
+import java.util.List;
+
 import javax.persistence.*;
+
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo_usuario")
-@Table(name = "usuario")
-public class Usuario {
+@DiscriminatorColumn(name = "tipo_pessoa")
+public class Pessoa {
 
 
     // Declaração dos atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+    
     protected String nome;
+
     protected int idade;
     
 
     // Construtor vazio
-    public Usuario(){
+    public Pessoa(){
 
     }
 
-    public Usuario(String nome, int idade) {
+    public Pessoa(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
     }
@@ -52,5 +57,15 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [id=" + id + ", nome=" + nome + ", idade=" + idade + "]";
-    }}
+        return "Pessoa [id=" + id + ", nome=" + nome + ", idade=" + idade + "]";
+    }
+
+    
+
+    
+
+
+
+
+    
+}

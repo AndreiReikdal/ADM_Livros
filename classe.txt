@@ -55,10 +55,8 @@ class Empréstimo {
 
 Livro -- Estante
 Empréstimo "1" -- "1" Usuario
-Empréstimo "1" -- "1" Livro
 Empréstimo "1" -- "1" Estante
 
-Usuário <|-- Adm
 Usuário <|-- Usuario
 
 @enduml
