@@ -14,10 +14,10 @@ import com.emprestalivro.desenvolvimento.models.usuarios.Pessoa;
 
 public class Application {
     static Scanner leitor = new Scanner(System.in);
-  
+    static PessoaDAO pessoaDao = new PessoaDAO();
     public static void main(String[] args) {
     // Instanciar livros
-    PessoaDAO pessoaDao = new PessoaDAO();
+    
     //EmprestimoDAO emprestimoDao = new EmprestimoDAO();
     //LivroDAO livroDao = new LivroDAO();
 
