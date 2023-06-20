@@ -22,9 +22,9 @@ public class Application {
     //LivroDAO livroDao = new LivroDAO();
 
     
-    //Cliente c1 = new Cliente("João", 30, "123456789");
+    Cliente c1 = new Cliente("João", 30, "123456789");
     Administrador a1 = new Administrador("Fernando", 40, "65416511", "dccdc16516dc");
-    //pessoaDao.salvarPessoa(c1);
+    pessoaDao.salvarPessoa(c1);
     pessoaDao.salvarPessoa(a1);
 
 

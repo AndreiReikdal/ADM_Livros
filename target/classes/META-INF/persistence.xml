@@ -4,11 +4,18 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
         version="2.0">
 
-    <persistence-unit name="my-persistence-unit">
+    <persistence-unit name="my-persistence-unit" transaction-type="RESOURCE_LOCAL">
+        
         <description>Hibernate EntityManager Demo</description>
+
         <class>com.emprestalivro.desenvolvimento.app.Application</class>
         <class>com.emprestalivro.desenvolvimento.models.usuarios.Pessoa</class>
+        <class>com.emprestalivro.desenvolvimento.models.usuarios.Cliente</class>
+        <class>com.emprestalivro.desenvolvimento.models.usuarios.Administrador</class>
         <class>com.emprestalivro.desenvolvimento.models.livro.Livro</class>
+        <class>com.emprestalivro.desenvolvimento.models.livro.Estante</class>
+        <class>com.emprestalivro.desenvolvimento.models.emprestimo.Emprestimo</class>
+
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
