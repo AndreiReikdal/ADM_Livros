@@ -1,8 +1,6 @@
 package com.emprestalivro.desenvolvimento.models.livro;
 
-import java.util.ArrayList;
 
-import com.emprestalivro.desenvolvimento.models.estante.Estante;
 
 import javax.persistence.*;
 
@@ -10,7 +8,11 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_Livro")
 @Table(name = "livro")
-public class Livro  {
+public class Livro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+
     protected String titulo;
     protected String editora;
     protected String iSBN;

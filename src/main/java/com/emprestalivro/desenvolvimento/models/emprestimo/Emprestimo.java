@@ -5,9 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
-import com.emprestalivro.desenvolvimento.models.estante.Estante;
+
+import com.emprestalivro.desenvolvimento.models.livro.Estante;
 import com.emprestalivro.desenvolvimento.models.livro.Livro;
 import com.emprestalivro.desenvolvimento.models.usuarios.Cliente;
 import com.emprestalivro.desenvolvimento.models.usuarios.Pessoa;
@@ -22,16 +22,16 @@ public class Emprestimo {
     private Long id;
 
     // Outros atributos da classe Emprestimo
-
-    @OneToOne
+   
+    @ManyToOne
     @JoinColumn(name = "livro_id")
     private Livro livro;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Pessoa pessoa;
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "estante_id")
     private Estante estante;
 
@@ -40,14 +40,16 @@ public class Emprestimo {
     public Emprestimo() {
     }
 
-    public Emprestimo(Livro livro, Pessoa pessoa, Estante estante) {
-        this.livro = livro;
-        this.pessoa = pessoa ;
+    
+
+
+    public Emprestimo(Cliente cliente, Estante estante) {
+        this.cliente = cliente;
         this.estante = estante;
     }
 
-    public Emprestimo(Estante e1, Cliente c1) {
-    }
+
+
 
     public Long getId() {
         return id;
@@ -66,11 +68,11 @@ public class Emprestimo {
     }
 
     public Pessoa getPessoa() {
-        return pessoa;
+        return cliente;
     }
 
-    public void setUsuario(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setUsuario(Cliente pessoa) {
+        this.cliente = pessoa;
     }
 
     public Estante getEstante() {
@@ -83,6 +85,15 @@ public class Emprestimo {
 
     public static void salvarEmprestimo(Emprestimo emprestimo1) {
     }
+
+    public void setCliente(Cliente novoCliente) {
+    }
+
+    @Override
+    public String toString() {
+        return "Emprestimo [id=" + id + ", livro=" + livro + ", pessoa=" + cliente + ", estante=" + estante + "]";
+    }
+    
 }
 
 

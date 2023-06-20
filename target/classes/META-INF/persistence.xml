@@ -6,9 +6,10 @@
 
     <persistence-unit name="my-persistence-unit">
         <description>Hibernate EntityManager Demo</description>
-        <class>src.main.java.com.emprestalivro.desenvolvimento.app.Application</class>
-        <class>com.emprestalivro.desenvolvimento.models.usuarios.Usuario</class>
-        
+        <class>com.emprestalivro.desenvolvimento.app.Application</class>
+        <class>com.emprestalivro.desenvolvimento.models.usuarios.Pessoa</class>
+        <class>com.emprestalivro.desenvolvimento.models.livro.Livro</class>
+
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>

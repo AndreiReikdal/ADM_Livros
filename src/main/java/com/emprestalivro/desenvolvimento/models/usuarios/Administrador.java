@@ -1,30 +1,30 @@
 package com.emprestalivro.desenvolvimento.models.usuarios;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.*;
-
 import com.emprestalivro.desenvolvimento.models.emprestimo.Emprestimo;
 import com.emprestalivro.desenvolvimento.models.livro.Livro;
-
 
 @Entity
 @DiscriminatorValue(value = "administrador")
 public class Administrador extends Pessoa {
+    protected long id;
     private String cpf;
-    private Object senhaObject;
+    private String senha;
+    
+
+
+    @OneToMany(mappedBy = "administrador", fetch = FetchType.EAGER)
     private List<Livro> listaLivros;
     private List<Emprestimo> listaEmprestimos;
 
     public Administrador() {
     }
 
-    public Administrador(String nome, int idade, String cpf,Object senhaObject) {
+    public Administrador(String nome, int idade, String cpf,String senha) {
         super(nome, idade);
-        this.senhaObject = senhaObject;
+        this.senha = senha;
         this.cpf = cpf;
-        this.listaLivros = new ArrayList<>();
-        this.listaEmprestimos = new ArrayList<>();
+        
     }
 
     
@@ -56,15 +56,14 @@ public class Administrador extends Pessoa {
     
 
     public Object getSenhaObject() {
-        return senhaObject;
+        return senha;
     }
 
-    public void setSenhaObject(Object senhaObject) {
-        this.senhaObject = senhaObject;
-    }
+    
+    
     @Override
     public String toString() {
-        return "\nAdministrador: nome = " + nome + " idade = " + idade + " cpf = " + cpf +" senha = "+ senhaObject + "\n\n";
+        return "\nAdministrador: nome = " + nome + " idade = " + idade + " cpf = " + cpf +" senha = "+ senha + "\n\n";
     }
 }
 

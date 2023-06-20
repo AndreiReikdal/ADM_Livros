@@ -150,6 +150,65 @@ package com.emprestalivro.desenvolvimento.app;
                 cDao.atualizarCarro(item);
             }
         }
+        
+
+
+          
+        // Lê o nome a ser buscado
+        System.out.println("Digite um nome: ");
+        String nomeBuscado = leitor.nextLine();
+
+        // Busca todas as pessoas do banco
+        ArrayList<Pessoa> pessoas = (ArrayList<Pessoa>) pessoaDao.buscarTodasPessoas();
+
+        // Percorre a lista até encontrar o nome (ou cada nome se houver repetidos)
+        for(Pessoa p : pessoas){
+            if(nomeBuscado.equals(p.getNome())){
+                System.out.println("Pessoa encontrada, digite um novo nome: ");
+                String novoNome = leitor.nextLine();
+                // Altera o nome no objeto
+                p.setNome(novoNome);
+                // Salva alterações no banco
+                pDao.atualizarPessoa(p);
+            }
+        }
+        */
+        /********************* REMOÇÃO DE UMA PESSOA POR SEU ID *************************** */
+        /*
+        // Carrega a lista de pessoas do banco
+        ArrayList<Pessoa> pessoas = (ArrayList<Pessoa>) pDao.buscarTodasPessoas();
+
+        // Imprime cada pessoa (O toString deve imprimir o ID neste caso)
+        for(Pessoa pessoa : pessoas){          
+            System.out.println(pessoa);
+        }
+
+        // Seleciona o id da pessoa a ser removida
+        System.out.println("Selecione um id para remover");
+        Long idSelecionado = Long.parseLong(leitor.nextLine());
+
+        // Busca a pessoa por id e a exclui do banco
+        Pessoa pessoaRemover = pDao.buscarPessoaPorId(idSelecionado);
+        pDao.excluirPessoa(pessoaRemover);
+        */
+
+        // Há outras maneiras de exlcuir, como passando diretamente o objeto a ser removido
+        /************************************************************************************ */
+        /***** SELECIONA UM CARRO POR UM NOME E ALTERA SEU DONO **************** */
+        /*        
+        ArrayList<Carro> carros = (ArrayList<Carro>) cDao.buscarTodasCarros();
+        for(Carro item : carros){
+            if(item.getModelo().equals("gurgel")){
+                //buscar pessoa pelo ID 1 (na aplicação real você deve pegar o id do objeto, por exemplo)                
+                Adulto novoDono = (Adulto) pDao.buscarPessoaPorId(1L);
+
+                //Define o novo dono e altera no carro
+                item.setDono(novoDono);
+
+                //Atualiza no banco
+                cDao.atualizarCarro(item);
+            }
+        }
         */
         /*************************************************************** */
 

@@ -1,26 +1,33 @@
 package com.emprestalivro.desenvolvimento.models.usuarios;
 
-import java.util.ArrayList;
 
 import java.util.List;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import com.emprestalivro.desenvolvimento.models.emprestimo.Emprestimo;
 
 @Entity
+@DiscriminatorValue(value = "cliente")
 public class Cliente extends Pessoa {
-    private String cpf;
-
-    @OneToMany(mappedBy = "cliente")
-    private static List<Emprestimo> emprestimos;
-
+    
     public Cliente() {
+       
     }
 
+    private String cpf;
+
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private List<Emprestimo> emprestimos;
+
+    
     public Cliente(String nome, int idade, String cpf) {
         super(nome, idade);
         this.cpf = cpf;
+        
     }
 
     public String getCpf() {
@@ -31,17 +38,18 @@ public class Cliente extends Pessoa {
         this.cpf = cpf;
     }
 
-    public static List<Emprestimo> getEmprestimos() {
+    public List<Emprestimo> getEmprestimos() {
         return emprestimos;
     }
 
     public void setEmprestimos(List<Emprestimo> emprestimos) {
-        Cliente.emprestimos = emprestimos;
+        this.emprestimos = emprestimos;
     }
 
     @Override
     public String toString() {
-        return "\nCliente: nome = " + nome + " idade = " + idade + " cpf = " + cpf + "\n\n";
+        return "Cliente: nome = " + nome + ", idade = " + idade + ", cpf = " + cpf;
     }
 }
+
 

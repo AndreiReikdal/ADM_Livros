@@ -16,7 +16,7 @@ public class EmprestimoDAO {
         emf = Persistence.createEntityManagerFactory("my-persistence-unit");
     }
 
-    public static void salvarEmprestimo(Emprestimo emprestimo) {
+    public void salvarEmprestimo(Emprestimo emprestimo) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(emprestimo);
@@ -31,8 +31,8 @@ public class EmprestimoDAO {
         return emprestimo;
     }
 
-    @SuppressWarnings("unchecked")
-    public static List<Emprestimo> buscarTodosEmprestimos() {
+    @SuppressWarnings("unchecked")/* limpar as mensagens de compilação */
+    public List<Emprestimo> buscarTodosEmprestimos() {
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("SELECT e FROM Emprestimo e");
         List<Emprestimo> emprestimos = query.getResultList();
@@ -40,7 +40,7 @@ public class EmprestimoDAO {
         return emprestimos;
     }
 
-    public static void atualizarEmprestimo(Emprestimo emprestimo) {
+    public void atualizarEmprestimo(Emprestimo emprestimo) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.merge(emprestimo);
